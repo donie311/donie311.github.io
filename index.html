@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+section {
+    padding: 40px;
+}
+
+.project {
+    background-color: #f4f4f4;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+form input, form textarea {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+</style>
+
+</head>
+<body>
+    <header>
+        <h1>Bonanza</h1>
+        <p>Développeur Front-End</p>
+    </header>
+    
+    <section id="about">
+        <h2>À propos</h2>
+        <p>Passionné par le développement web, je crée des sites performants et modernes.</p>
+    </section>
+    
+    <section id="projects">
+        <h2>Projets</h2>
+        <div class="project">
+            <h3>Projet 1</h3>
+            <p>Description du projet.</p>
+        </div>
+        <div class="project">
+            <h3>Projet 2</h3>
+            <p>Description du projet.</p>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <input type="text" placeholder="Votre nom" required>
+            <input type="email" placeholder="Votre email" required>
+            <textarea placeholder="Votre message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Bonanza - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
