@@ -1,140 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — RASOANAIVO Dominique</title>
+  <style>
+    :root{
+      --bg:#f6f7fb; --card:#ffffff; --accent:#0b74da; --muted:#6b7280; --maxw:1000px;
+      --glass: rgba(255,255,255,0.7);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#eef2ff 0%,var(--bg) 100%); margin:0; color:#0f172a}
+    .wrap{max-width:var(--maxw); margin:32px auto; padding:20px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6ea8fe);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin-left:12px;text-decoration:none;color:var(--accent);font-weight:600}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:18px}
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
+    /* Card */
+    .card{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(12,22,63,0.06)}
+    .profile{display:flex;gap:16px;align-items:center}
+    .photo{width:110px;height:110px;border-radius:12px;background:linear-gradient(135deg,#e6eefc,#f3f6ff);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px}
+    .contact small{display:block;color:var(--muted)}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .tag{background:#eff6ff;padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent);font-size:13px}
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-}
+    /* Two-column sections */
+    .content-grid{display:grid;grid-template-columns:1fr 300px;gap:18px;margin-top:18px}
+    .section h3{margin:0 0 8px 0}
+    ul{margin:6px 0 12px 18px}
+    .muted{color:var(--muted)}
 
-section {
-    padding: 40px;
-}
+    /* CV pages (tabs) */
+    .tabs{display:flex;gap:8px}
+    .tabs button{background:transparent;border:1px solid transparent;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+    .tabs button.active{background:var(--accent);color:white;border-color:rgba(11,116,218,0.2)}
 
-.project {
-    background-color: #f4f4f4;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 5px;
-}
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .content-grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
 
-form input, form textarea {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px}
 
-button {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-</style>
-
+    /* Minimal print-friendly adjustments */
+    @media print{body{background:white} .wrap{box-shadow:none} nav, .tabs{display:none}}
+  </style>
 </head>
 <body>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #f4f4f4;
-        }
-
-        nav {
-            background: #333;
-            padding: 15px 0;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #f4a261;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul li {
-                display: block;
-                margin: 10px 0;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <div class="wrap">
     <header>
-        <h1>Bonanza</h1>
-        <p>Développeur Front-End</p>
+      <div class="brand">
+        <div class="logo">RD</div>
+        <div>
+          <div style="font-weight:800;font-size:18px">RASOANAIVO Dominique</div>
+          <div class="muted" style="font-size:13px">Développeur Front‑end — Assistant Administratif</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#cv1">CV — Développeur</a>
+        <a href="#cv2">CV — Assistant Admin</a>
+      </nav>
     </header>
-    
-    
-        <form>
-            <input type="text" placeholder="Votre nom" required>
-            <input type="email" placeholder="Votre email" required>
-            <textarea placeholder="Votre message" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </section>
-    
+
+    <div class="hero">
+      <div class="card">
+        <div class="profile">
+          <div class="photo">Photo<br>ici</div>
+          <div>
+            <div style="font-weight:800;font-size:16px">RASOANAIVO Dominique</div>
+            <div class="muted">Lot 05 – H – 110 Ampatana • Antsirabe</div>
+            <div class="contact" style="margin-top:10px">
+              <div><strong>Téléphone :</strong> 034 28 711 27 / 032 63 302 07</div>
+              <div><strong>Email :</strong> rasoanaivodominique311@gmail.com</div>
+              <small class="muted">Né le 08 mars 1985 • Marié • Permis A-B</small>
+            </div>
+            <div class="tags" style="margin-top:12px">
+              <div class="tag">HTML</div><div class="tag">CSS</div><div class="tag">JavaScript</div><div class="tag">WordPress</div><div class="tag">Shopify</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px">
+          <div class="tabs" role="tablist" aria-label="CV Tabs">
+            <button class="active" onclick="showCV('cv1')">CV Développeur</button>
+            <button onclick="showCV('cv2')">CV Administratif</button>
+          </div>
+
+          <div id="cv1" class="cv section">
+            <h3 style="margin-top:12px">Résumé</h3>
+            <p class="muted">Développeur front‑end et intégrateur CMS (WordPress, Divi, Shopify, Elementor). Conception et intégration de sites vitrines et e‑commerce.</p>
+
+            <div class="content-grid">
+              <div>
+                <div class="section">
+                  <h3>Expériences</h3>
+                  <ul>
+                    <li><strong>2023 – 2025</strong> — Développeur front‑end et intégrateur CMS. Projets : quilefait.com, coteveranda.fr, expert-adoucisseur.fr</li>
+                    <li><strong>2020 – 2023</strong> — Chef de zone – Production d’huile essentielle (Ambalavao)</li>
+                    <li><strong>2016 – 2020</strong> — Lay Planner — Cottonline</li>
+                    <li><strong>2014 – 2016</strong> — Agent de monitoring TV — Blueline Antsirabe</li>
+                    <li><strong>2012 – 2014</strong> — Opérateur de traitement de documents — Jouve Madagascar</li>
+                    <li><strong>2008 – 2011</strong> — Divers postes (Vendeur, Stagiaire, Caissier)</li>
+                  </ul>
+                </div>
+
+                <div class="section">
+                  <h3>Diplômes</h3>
+                  <ul>
+                    <li>2022 — Licence en Informatique (Réseaux et Systèmes) — CNTEMAD</li>
+                    <li>2012 — D.T.S.I.G. — CNTEMAD</li>
+                    <li>2010 — D.T.S.I.G. — IESTIME Antsirabe</li>
+                    <li>2007 — Baccalauréat A2</li>
+                  </ul>
+                </div>
+
+                <div class="section">
+                  <h3>Compétences techniques</h3>
+                  <ul>
+                    <li>WordPress, Divi, Shopify, Elementor</li>
+                    <li>HTML, CSS, JavaScript, PHP (bases)</li>
+                    <li>Bureautique : Excel, Word, Power BI</li>
+                  </ul>
+                </div>
+
+              </div>
+
+              <aside class="card" style="background:var(--glass);padding:12px">
+                <h4 style="margin-top:0">Langues</h4>
+                <p class="muted">Français — Avancé<br>Anglais — Moyen</p>
+
+                <h4 style="margin-top:12px">Loisirs</h4>
+                <p class="muted">Lecture, Internet, natation, voyage, jeu vidéo</p>
+
+                <h4 style="margin-top:12px">Projets</h4>
+                <p class="muted" style="font-size:14px">Quelques sites :<br>quilefait.com<br>coteveranda.fr<br>expert-adoucisseur.fr</p>
+              </aside>
+            </div>
+          </div>
+
+          <div id="cv2" class="cv section" style="display:none">
+            <h3 style="margin-top:12px">Profil</h3>
+            <p class="muted">Professionnel polyvalent, organisé et rigoureux, avec expérience en gestion administrative, traitement de documents et suivi opérationnel. Souhaite travailler comme Assistant Administratif.</p>
+
+            <div class="content-grid">
+              <div>
+                <div class="section">
+                  <h3>Expériences</h3>
+                  <ul>
+                    <li><strong>2023 – 2025</strong> — Développeur front‑end et intégrateur CMS (Freelance)</li>
+                    <li><strong>2020 – 2023</strong> — Chef de zone — Production d’huile essentielle (Ambalavao)</li>
+                    <li><strong>2016 – 2020</strong> — Lay Planner — Cottonline</li>
+                    <li><strong>2014 – 2016</strong> — Agent de monitoring TV — Blueline Antsirabe</li>
+                    <li><strong>2012 – 2014</strong> — Opérateur de traitement de documents — Jouve Madagascar</li>
+                    <li>2011 — Caissier — Shoprite Antsirabe</li>
+                  </ul>
+                </div>
+
+                <div class="section">
+                  <h3>Formations</h3>
+                  <ul>
+                    <li>2022 — Licence en Informatique — CNTEMAD</li>
+                    <li>2012 — D.T.S.I.G. — CNTEMAD</li>
+                    <li>2010 — D.T.S.I.G. — IESTIME Antsirabe</li>
+                    <li>2007 — Baccalauréat A2</li>
+                  </ul>
+                </div>
+
+                <div class="section">
+                  <h3>Compétences</h3>
+                  <ul>
+                    <li>Administratif : saisie, classement, suivi de dossiers, gestion de planning</li>
+                    <li>Bureautique : Word, Excel, Power BI, Outlook</li>
+                    <li>Informatique : HTML, CSS, JavaScript, WordPress, Shopify, Divi</li>
+                  </ul>
+                </div>
+              </div>
+
+              <aside class="card" style="background:var(--glass);padding:12px">
+                <h4 style="margin-top:0">Langues</h4>
+                <p class="muted">Français — Avancé<br>Anglais — Intermédiaire</p>
+
+                <h4 style="margin-top:12px">Centres d'intérêt</h4>
+                <p class="muted">Lecture, Internet, natation, voyage, jeux vidéo</p>
+              </aside>
+            </div>
+
+            <div style="margin-top:14px">
+              <strong>Déclaration :</strong>
+              <p class="muted" style="margin-top:6px">Je déclare sur l'honneur que les renseignements ci‑dessus sont exacts et sincères.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h4 style="margin-top:0">Télécharger</h4>
+          <p class="muted">Vous pouvez copier/coller ce contenu dans deux fichiers HTML distincts si vous souhaitez publier un CV séparé par page.</p>
+          <p style="margin-top:8px"><a href="#" onclick="downloadHTML()">Télécharger la page HTML</a></p>
+          <hr>
+          <h4>Astuce GitHub</h4>
+          <p class="muted" style="font-size:13px">Placez ce fichier nommé <code>index.html</code> dans un repo public et activez GitHub Pages (branch main / docs/). Le site sera disponible en quelques minutes.</p>
+        </div>
+      </aside>
+    </div>
+
     <footer>
-        <p>&copy; 2025 Bonanza - Tous droits réservés.</p>
+      © RASOANAIVO Dominique — Portfolio généré automatiquement • Modifiez la photo et adaptez le texte avant publication.
     </footer>
+  </div>
+
+  <script>
+    function showCV(id){
+      document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+      event.target.classList.add('active');
+      document.querySelectorAll('.cv').forEach(c=>c.style.display='none');
+      document.getElementById(id).style.display='block';
+    }
+
+    function downloadHTML(){
+      const html = '<!doctype html>'+document.documentElement.innerHTML;
+      const blob = new Blob([html],{type:'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download='portfolio-rasoanaivo.html'; a.click(); URL.revokeObjectURL(url);
+    }
+  </script>
 </body>
 </html>
